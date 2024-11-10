@@ -1,3 +1,11 @@
+
+![alt text](image.png)
+
+
+
+
+
+
 This project is a showcase of my React development skills, with a focus on efficiently managing and rendering state. The entire application is built with React, utilizing a state-driven architecture to handle dynamic updates and user interactions seamlessly.
 
 Key Features:
