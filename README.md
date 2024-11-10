@@ -23,4 +23,6 @@ With use of React.memo and other techniques to prevent unnecessary re-renders, t
 
 This project serves as a practical example of my understanding of React, particularly in handling dynamic UIs, managing component states, and optimizing rendering behavior.
 
+Reload and About button are not working, I will work on them one day.......
+
  
