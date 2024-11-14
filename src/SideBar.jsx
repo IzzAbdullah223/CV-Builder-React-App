@@ -4,6 +4,7 @@
  
 
     function Sidebar(Props){
+
         
         function PersonalArrow(x,Arr){
             let Bottom = document.querySelector(`.${x}`)
@@ -91,6 +92,12 @@
             newLanguage[index]=event.target.value
             Props.setLanguages(newLanguage)
         }
+
+        function changeFluent(event,index){
+            const newFluent=[...Props.Fluent]
+            newFluent[index]=event.target.value
+            Props.setFluent(newFluent)
+        }
     
 
         
@@ -111,6 +118,27 @@
         function EXLocationChange(event){
             Props.setEXLocation(event.target.value)
         }
+
+        function changeUni(event){
+            Props.setUni(event.target.value)
+        }
+
+        function changeDegree(event){
+            Props.setDegree(event.target.value)
+        }
+
+        function changeCompletion(event){
+            Props.setCompletion(event.target.value)
+        }
+
+        function changeLocation(event){
+            Props.setLocation(event.target.value)
+        }
+
+        function changeResult(event){
+            Props.setResult(event.target.value)
+        }
+
 
         function removeSkill(index){
             Props.setSkills(s=>s.filter((_,i)=>i!==index))
@@ -249,15 +277,15 @@
                     </div>
                     <div className="pBottom BTM5">
                     <h3>College/University</h3>
-                        <textarea value={Props.Uni}></textarea>
+                        <textarea value={Props.Uni} onChange={changeUni}></textarea>
                         <h3>Degree</h3>
-                        <input type='text' value={Props.Degree}></input>
+                        <input type='text' value={Props.Degree} onChange={changeDegree}></input>
                         <h3>Completion By:</h3>
-                        <input type='text' value={Props.Completion}></input>
+                        <input type='text' value={Props.Completion} onChange={changeCompletion}></input>
                         <h3>Location: </h3>
-                        <input type='text' value={Props.Location}></input>
+                        <input type='text' value={Props.Location} onChange={changeLocation}></input>
                         <h3>Result:</h3>
-                        <input value={Props.Result}></input>
+                        <input value={Props.Result} onChange={changeResult}></input>
                     </div>
                     <div className="BlackLine"></div>
                 </div>
@@ -268,13 +296,18 @@
                         <img onClick={()=>PersonalArrow("BTM6","Arr6")} className='Arrow Arr6' src={ArrowDown} width={"20px"}></img>
                     </div>
                     <div className="pBottom BTM6">
+                        <div className="LngTrashContainer">
+                        <div className="TrashContainer">
+                            {Props.Languages.map((index)=><img src={Trash} width={"20px"} ></img>)}
+                        </div>
                         <div className="LContainer"> 
                         <div className="Left">
                             {Props.Languages.map((Language,index)=><input type='text' value={Language} key={index} onChange={(event)=>changeLanguage(event,index)}></input>)}
                         </div>
                         <div className="Right">
-                            {Props.Fluent.map((fluent,index)=><input type='text'value={fluent} key={index}></input>)}
+                            {Props.Fluent.map((fluent,index)=><input type='text'value={fluent} key={index} onChange={(event)=>changeFluent(event,index)}></input>)}
                         </div>
+                    </div>
                     </div>
                     <div className="BTNContainer"> 
                         <button className='SkillBTN' onClick={AddNewLanguage}>+New</button>
